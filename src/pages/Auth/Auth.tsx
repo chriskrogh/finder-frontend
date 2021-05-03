@@ -6,7 +6,9 @@ import Typography from 'components/Typography';
 import Vector from 'components/Vector';
 import { FacebookVector, GoogleVector, LogoVector } from 'icons';
 import React from 'react';
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
+import { ROUTES } from 'utils/routes';
 
 const TopBlock = styled(Column)`
   background-color: ${({ theme }) => theme.colors.tertiary};
@@ -24,6 +26,11 @@ const BottomBlock = styled(Column)`
 `;
 
 const Auth: React.FC = () => {
+  const history = useHistory();
+
+  const handleContinueWithFacebook = () => history.push(ROUTES.SIGNUP);
+  const handleContinueWithGoogle = () => history.push(ROUTES.SIGNUP);
+
   return (
     <Page>
       <TopBlock justifyContent="center" alignItems="center" fullWidth>
@@ -39,11 +46,19 @@ const Auth: React.FC = () => {
           safely! View their live location while they are on the move.
         </Typography>
         <Spacer height={16} />
-        <Button fullWidth vectorIcon={FacebookVector}>
+        <Button
+          fullWidth
+          vectorIcon={FacebookVector}
+          onClick={handleContinueWithFacebook}
+        >
           Continue with Facebook
         </Button>
         <Spacer height={16} />
-        <Button fullWidth vectorIcon={GoogleVector}>
+        <Button
+          fullWidth
+          vectorIcon={GoogleVector}
+          onClick={handleContinueWithGoogle}
+        >
           Continue with Google
         </Button>
       </BottomBlock>
