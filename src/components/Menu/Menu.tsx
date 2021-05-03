@@ -14,7 +14,7 @@ const Container = styled.div`
   bottom: 0;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.background};
-  transition: height 0.4s ease;
+  transition: height 0.3s ease;
   border-top-left-radius: ${BORDER_RADIUS}px;
   border-top-right-radius: ${BORDER_RADIUS}px;
 `;
