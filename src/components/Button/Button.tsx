@@ -8,9 +8,9 @@ type ContainerProps = {
   fullWidth?: boolean;
 };
 const Container = styled.button<ContainerProps>`
-  display: 'flex';
-  justify-content: 'center';
-  align-items: 'center';
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   padding: 8px;
   min-height: 48px;
