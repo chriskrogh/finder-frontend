@@ -1,6 +1,7 @@
 import { ApolloProvider } from '@apollo/client';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ThemeProvider } from 'theme';
 import { client } from 'utils/providers/ApolloClient';
 
 import App from './App';
@@ -10,7 +11,9 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root'),
