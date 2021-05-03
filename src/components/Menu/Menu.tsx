@@ -1,3 +1,5 @@
+import Row from 'components/Row';
+import Spacer from 'components/Spacer';
 import React, { useState } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import styled from 'styled-components';
@@ -17,6 +19,14 @@ const Container = styled.div`
   transition: height 0.3s ease;
   border-top-left-radius: ${BORDER_RADIUS}px;
   border-top-right-radius: ${BORDER_RADIUS}px;
+`;
+
+const BAR_HEIGHT = 10;
+const Bar = styled.div`
+  height: ${BAR_HEIGHT}px;
+  width: 92px;
+  border-radius: ${BAR_HEIGHT / 2}px;
+  background-color: ${({ theme }) => theme.colors.overlay};
 `;
 
 const Menu: React.FC = ({ children }) => {
@@ -41,6 +51,11 @@ const Menu: React.FC = ({ children }) => {
 
   return (
     <Container {...handlers} style={{ height: menuHeight }}>
+      <Spacer height={16} />
+      <Row justifyContent="center" fullWidth>
+        <Bar />
+      </Row>
+      <Spacer height={16} />
       {children}
     </Container>
   );
