@@ -1,4 +1,4 @@
-type ThemeTag = {
+export type ThemeTag = {
   fontFamily: string;
   fontSize: number;
   fontWeight: number;
