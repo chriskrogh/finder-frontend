@@ -1,3 +1,4 @@
+import Spacer from 'components/Spacer';
 import Typography from 'components/Typography';
 import Vector, { VectorIcon } from 'components/Vector';
 import React from 'react';
@@ -8,7 +9,6 @@ type ContainerProps = {
 };
 const Container = styled.button<ContainerProps>`
   display: 'flex';
-  flex-direction: 'column';
   justify-content: 'center';
   align-items: 'center';
   border: none;
@@ -27,7 +27,12 @@ const Button: React.FC<Props> = ({ fullWidth, vectorIcon, children }) => {
 
   return (
     <Container fullWidth={fullWidth}>
-      {vectorIcon && <Vector height={20} vectorIcon={vectorIcon} />}
+      {vectorIcon && (
+        <>
+          <Vector height={20} vectorIcon={vectorIcon} />
+          <Spacer width={16} />
+        </>
+      )}
       <Typography tag="body" color={theme.colors.background}>
         {children}
       </Typography>
