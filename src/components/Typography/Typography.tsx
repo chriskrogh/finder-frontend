@@ -6,6 +6,7 @@ import Tag from './Tag';
 
 export type Props = {
   tag: keyof ThemeTypography;
+  color?: string;
   italic?: boolean;
   textTransform?: TextTransformOption;
   textAlign?: TextAlignOption;
