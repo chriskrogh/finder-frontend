@@ -1,7 +1,7 @@
 import Spacer from 'components/Spacer';
 import Typography from 'components/Typography';
 import Vector, { VectorIcon } from 'components/Vector';
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import styled, { useTheme } from 'styled-components';
 
 type ContainerProps = {
@@ -18,15 +18,21 @@ const Container = styled.button<ContainerProps>`
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'initial')};
 `;
 
-type Props = ContainerProps & {
-  vectorIcon?: VectorIcon;
-};
+type Props = ContainerProps &
+  ButtonHTMLAttributes<HTMLButtonElement> & {
+    vectorIcon?: VectorIcon;
+  };
 
-const Button: React.FC<Props> = ({ fullWidth, vectorIcon, children }) => {
+const Button: React.FC<Props> = ({
+  fullWidth,
+  vectorIcon,
+  children,
+  ...props
+}) => {
   const theme = useTheme();
 
   return (
-    <Container fullWidth={fullWidth}>
+    <Container fullWidth={fullWidth} {...props}>
       {vectorIcon && (
         <>
           <Vector height={20} vectorIcon={vectorIcon} />
